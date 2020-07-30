@@ -38,13 +38,13 @@ namespace Api1.Api1Controller
             });
 
             // InMemoryを使用する場合はこちら
-            // services.AddDbContext<Api1Context>(options =>
-            //         options.UseInMemoryDatabase(Configuration.GetConnectionString("Api1Context")));
+            services.AddDbContext<Api1Context>(options =>
+                    options.UseInMemoryDatabase(Configuration.GetConnectionString("Api1Context")));
 
             // SQLServerを使用する場合はこちら
-            services.AddDbContext<Api1Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Api1Context")
-                    ,x => x.MigrationsAssembly("Api1Migration")));
+            // services.AddDbContext<Api1Context>(options =>
+            //         options.UseSqlServer(Configuration.GetConnectionString("Api1Context")
+            //         ,x => x.MigrationsAssembly("Api1Migration")));
 
             // ODataのサービス構築
             services.AddOData();

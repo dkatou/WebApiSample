@@ -37,8 +37,15 @@ namespace Api1Controller.Controllers
 
         [ODataRoute("{id}")]
         [EnableQuery]
-        public async Task<ActionResult<Blog>> GetBlog([FromODataUri]int id)
+        public async Task<ActionResult<Blog>> GetBlog([FromODataUri] int id)
         {
+            string param1 = Request.Query["param1"];
+            bool param2;
+            if(!bool.TryParse(Request.Query["param2"], out param2))
+            {
+                param2 = true;
+            };
+
             var blog = await _logic.GetBlog(id);
 
             if (blog == null)
