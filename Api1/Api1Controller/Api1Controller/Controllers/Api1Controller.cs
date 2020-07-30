@@ -15,7 +15,7 @@ namespace Api1Controller.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [ODataRoutePrefix("Api1")]// Edmを対応するEntityの名前を設定する
+    [ODataRoutePrefix("Api1")]// Edmに対応するEntityの名前を設定する
     public class Api1Controller : ODataController
     {
         private readonly Api1Context _context;
